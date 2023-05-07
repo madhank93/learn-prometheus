@@ -26,3 +26,15 @@
 - **Counter** - How many times this event happened ? (ex: no. of exception, total no. of request a service as received)
 - **Gauge** - What is the current value of this event now ? Values can go up and down (ex: current usage of RAM or DISK)
 - **Histogram** - It is used to track how long an event took ? (eg: how long an API request took to complete)
+
+### Deploying types
+
+- Manually configuring all the yml files (Not recommended)
+- Using an [operator](https://github.com/prometheus-operator/prometheus-operator) for more info refer [k8s operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)
+- Using an helm chart to deploy [operator](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) (Highly recommended approach)
+
+```
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install prometheus prometheus-community/kube-prometheus-stack
+```
